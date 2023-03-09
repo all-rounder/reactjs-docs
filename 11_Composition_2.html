@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Getting Started</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      function Contacts() {
+        return <div className="Contacts" />;
+      }
+
+      function Chat() {
+        return <div className="Chat" />;
+      }
+      
+      function SplitPane(props) {
+        return (
+          <div className="SplitPane">
+            <div className="SplitPane-left">
+              {props.left}
+            </div>
+            <div className="SplitPane-right">
+              {props.right}
+            </div>
+          </div>
+        );
+      }
+
+      function App() {
+        return (
+          <SplitPane
+            left={
+              <Contacts />
+            }
+            right={
+              <Chat />
+            } />
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<App />);
+
+    </script>
+  </body>
+</html>

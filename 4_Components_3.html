@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Getting Started</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      function Avatar({name, avatarUrl}) {
+        return (
+          <img className="Avatar"
+            src={avatarUrl}
+            alt={name}
+          />
+        );
+      }
+
+      function UserInfo({name, avatarUrl}) {
+        return (
+          <div className="UserInfo">
+            <Avatar name={name} avatarUrl={avatarUrl} />
+            <div className="UserInfo-name">
+                  {name}
+                </div>
+          </div>
+        );
+      }
+
+      function Comment({name, avatarUrl, text='comment text', date}) {
+        return (
+          <div className="Comment">
+            <UserInfo name={name} avatarUrl={avatarUrl} />
+            <div className="Comment-text">
+              {text}
+            </div>
+            <div className="Comment-date">
+              {date}
+            </div>
+          </div>
+        );
+      }      
+
+      // const element = <Comment
+      //   author={{name: 'Andy',
+      //     avatarUrl: 'http://placekitten.com/g/64/64'}}
+      //   text='3. Leave your comment here'
+      //   date={new Date().toLocaleDateString()}
+      // />
+      const element = <Comment
+        name = 'Andy'
+        avatarUrl = 'http://placekitten.com/g/64/64'
+        text='3. Leave your comment here'
+        date={new Date().toLocaleDateString()}
+      />
+      const root = ReactDOM.createRoot(
+        document.getElementById('root')
+      );
+      root.render(element);
+
+    </script>
+  </body>
+</html>
